@@ -1,0 +1,8 @@
+{
+  "appId": "com.binpack.app",
+  "appName": "BinPack",
+  "webDir": "build",
+  "server": {
+    "androidScheme": "https"
+  }
+}
