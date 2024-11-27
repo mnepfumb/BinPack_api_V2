@@ -1,0 +1,3 @@
+# binpack api
+
+npm start
