@@ -23,10 +23,10 @@ app.use(morgan("dev"));
 require('dotenv').config();
 
 const corsOptions = {
-    "origin": "*",
-    "methods": ["GET,HEAD,PUT,PATCH,POST,DELETE"],
-    "preflightContinue": false,
-    "optionsSuccessStatus": 204
+    // "Access-Control-Allow-Origin": process.env.ORIGIN_URL,
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+    "Access-Control-Allow-Credentials": true,
     // origin: process.env.ORIGIN_URL, // Replace with your frontend URL
     // optionsSuccessStatus: 200,  // some legacy browsers (IE11, various SmartTVs) choke on 204
     // "methods": ["GET,HEAD,PUT,PATCH,POST,DELETE"],
