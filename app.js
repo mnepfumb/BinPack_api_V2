@@ -23,14 +23,9 @@ app.use(morgan("dev"));
 require('dotenv').config();
 
 const corsOptions = {
-    origin:'*', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200,
-    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization", "Access-Control-Allow-Origin"],
-    methods: ["OPTIONS,GET,HEAD,PUT,PATCH,POST,DELETE"],
-    preflightContinue: true,
-    credentials: true,
-    optionSuccessStatus: 200
+    origin:process.env.ORIGIN_URL,// Allow requests from this origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowable methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowable headers
 };
 
 app.use(cors(corsOptions));
