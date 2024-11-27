@@ -23,15 +23,9 @@ app.use(morgan("dev"));
 require('dotenv').config();
 
 const corsOptions = {
-    // "Access-Control-Allow-Origin": process.env.ORIGIN_URL,
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-    "Access-Control-Allow-Credentials": true,
-    // origin: process.env.ORIGIN_URL, // Replace with your frontend URL
-    // optionsSuccessStatus: 200,  // some legacy browsers (IE11, various SmartTVs) choke on 204
-    // "methods": ["GET,HEAD,PUT,PATCH,POST,DELETE"],
-    // "preflightContinue": false,
-    // credentials: true // This allows the server to accept cookies from the client
+    origin:'*', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200,
 };
 
 app.use(cors(corsOptions));
