@@ -30,16 +30,18 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// app.use((req, res, next) => {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-//     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-//     res.header("Access-Control-Allow-Credentials", "true"); // Access-Control-Allow-Credentials, true);
-    
-//     console.log("Request received:" + req.method, req.url);
-    
-//     next();
-// });
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', process.env.ORIGIN_URL);
+    res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+  
+    // Handle preflight requests
+    if (req.method === 'OPTIONS') {
+      res.sendStatus(200); // Return OK for OPTIONS requests
+    } else {
+      next();
+    }
+  });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
