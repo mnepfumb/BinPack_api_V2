@@ -14,7 +14,7 @@ const {
 } = require("../controllers/authController");
 
 const authRouter = express.Router();
-console.log(authRouter);
+
 // SignUp
 authRouter.route("/signup").post(signup);
 authRouter.route("/signin").post(signin);
