@@ -29,20 +29,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.options('*', cors()); // Enable preflight for all routes
-
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', process.env.ORIGIN_URL);
-    res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
-  
-    // Handle preflight requests
-    if (req.method === 'OPTIONS') {
-      res.sendStatus(200); // Return OK for OPTIONS requests
-    } else {
-      next();
-    }
-  });
+app.options('*', cors(corsOptions)); // Enable preflight for all routes
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
