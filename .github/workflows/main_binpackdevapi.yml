@@ -59,4 +59,4 @@ jobs:
           app-name: 'binPackDevAPI'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C8D77F1E55204B7CABF360CF7F52E14C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_27390380477845BB8D0A2BBA056DB923 }}
