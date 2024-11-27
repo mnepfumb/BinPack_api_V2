@@ -26,7 +26,9 @@ const corsOptions = {
     origin:'*', 
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200,
-    "preflightContinue": true,
+    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
+    methods: ["OPTIONS,GET,HEAD,PUT,PATCH,POST,DELETE"],
+    preflightContinue: true,
 };
 
 app.use(cors(corsOptions));
