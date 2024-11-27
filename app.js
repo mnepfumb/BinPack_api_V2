@@ -22,16 +22,18 @@ app.use(morgan("dev"));
 // Load environment variables
 require('dotenv').config();
 
-// const corsOptions = {
-//     origin:'*', 
-//     credentials:true,            //access-control-allow-credentials:true
-//     optionSuccessStatus:200,
-//     allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
-//     methods: ["OPTIONS,GET,HEAD,PUT,PATCH,POST,DELETE"],
-//     preflightContinue: true,
-// };
+const corsOptions = {
+    origin:'*', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200,
+    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization", "Access-Control-Allow-Origin"],
+    methods: ["OPTIONS,GET,HEAD,PUT,PATCH,POST,DELETE"],
+    preflightContinue: true,
+    credentials: true,
+    optionSuccessStatus: 200
+};
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 // app.use((req, res, next) => {
 //     res.header("Access-Control-Allow-Origin", "*");
