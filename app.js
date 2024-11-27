@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors');
+// const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const AppError = require("./utils/appError");
@@ -22,16 +22,27 @@ app.use(morgan("dev"));
 // Load environment variables
 require('dotenv').config();
 
-const corsOptions = {
-    origin:'*', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200,
-    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
-    methods: ["OPTIONS,GET,HEAD,PUT,PATCH,POST,DELETE"],
-    preflightContinue: true,
-};
+// const corsOptions = {
+//     origin:'*', 
+//     credentials:true,            //access-control-allow-credentials:true
+//     optionSuccessStatus:200,
+//     allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
+//     methods: ["OPTIONS,GET,HEAD,PUT,PATCH,POST,DELETE"],
+//     preflightContinue: true,
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", '*');
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.header("Access-Control-Allow-Credentials", true); // Access-Control-Allow-Credentials, true);
+    
+    console.log("Request received:" + req.method, req.url);
+    
+    next();
+});
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
