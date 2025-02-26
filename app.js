@@ -23,7 +23,7 @@ app.use(morgan("dev"));
 require('dotenv').config();
 
 const corsOptions = {
-    origin:process.env.ORIGIN_URL,// Allow requests from this origin
+    origin: process.env.ORIGIN_URL, // Allow requests from this origin
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowable methods
     allowedHeaders: ['Content-Type', 'Authorization'], // Allowable headers
 };
